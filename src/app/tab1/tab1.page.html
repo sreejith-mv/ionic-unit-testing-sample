@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Tab 1 </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="onClick()" expand="block" fill="clear" class="alert-test" shape="round">
+    Show alert
+  </ion-button>
+  <ion-item>
+    <ion-label color="secondary">Users By Observable</ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-item class="list-of-users" *ngFor="let user of usersList | async">
+      <ion-label>{{user.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label color="secondary">Users By Promise</ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let user of usersListByPromise">
+      <ion-label>{{user.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
